@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mehedi Hasan</title>
+
+  <title>SSC 2027 Study Hub</title>
 
   <style>
     * {
@@ -15,80 +15,211 @@
     }
 
     body {
-      background: #0f172a;
+      background: #0b1020;
       color: white;
-      text-align: center;
+      min-height: 100vh;
     }
 
     header {
-      padding: 70px 20px 40px;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      background: #111936;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #273154;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    header h1 {
-      font-size: 42px;
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #6c63ff;
+    }
+
+    .menu {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 45px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #121a3a, #17124a);
+    }
+
+    .hero h1 {
+      font-size: 34px;
       margin-bottom: 12px;
     }
 
-    header p {
-      font-size: 18px;
+    .hero h1 span {
+      color: #7c73ff;
     }
 
-    section {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 30px 20px;
+    .hero p {
+      color: #b8bfd8;
+      font-size: 15px;
+      line-height: 1.6;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 25px;
-      margin: 20px 0;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 25px;
+      background: #6c63ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 8px 25px rgba(108,99,255,.3);
     }
 
-    h2 {
-      color: #60a5fa;
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 18px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 25px 0 15px;
+    }
+
+    .countdown {
+      background: #121a33;
+      border: 1px solid #29345a;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .countdown h3 {
+      color: #bfc6e0;
       margin-bottom: 15px;
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
     }
 
-    .skill {
-      background: #2563eb;
-      padding: 10px 18px;
+    .time-box {
+      background: #1b2545;
+      padding: 13px 5px;
+      border-radius: 12px;
+    }
+
+    .time-box strong {
+      display: block;
+      font-size: 23px;
+      color: #8b84ff;
+    }
+
+    .time-box small {
+      color: #aeb5cf;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .subject {
+      background: #121a33;
+      border: 1px solid #29345a;
+      padding: 20px 15px;
+      border-radius: 16px;
+      transition: .3s;
+    }
+
+    .subject:hover {
+      transform: translateY(-4px);
+      border-color: #6c63ff;
+    }
+
+    .subject .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .subject h3 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .subject p {
+      color: #929ab8;
+      font-size: 12px;
+    }
+
+    .progress-card {
+      background: #121a33;
+      border: 1px solid #29345a;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      color: #cbd0e2;
+    }
+
+    .progress-bar {
+      height: 12px;
+      background: #252e4d;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 25%;
+      background: #6c63ff;
       border-radius: 20px;
     }
 
-    .buttons {
+    .tips {
+      background: linear-gradient(135deg, #171d42, #21194a);
+      border-radius: 18px;
+      padding: 22px;
       margin-top: 20px;
     }
 
-    .buttons a {
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      background: #2563eb;
-      padding: 12px 22px;
-      margin: 6px;
-      border-radius: 25px;
+    .tips h3 {
+      margin-bottom: 12px;
     }
 
-    .buttons a:hover {
-      background: #7c3aed;
+    .tips p {
+      color: #b8bfd8;
+      line-height: 1.7;
+      font-size: 14px;
     }
 
     footer {
-      margin-top: 40px;
-      padding: 25px;
-      background: #020617;
-      color: #94a3b8;
+      text-align: center;
+      padding: 30px 15px;
+      margin-top: 20px;
+      color: #777f9e;
+      font-size: 13px;
+    }
+
+    @media (min-width: 700px) {
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .subjects {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   </style>
 </head>
@@ -96,55 +227,170 @@
 <body>
 
   <header>
-    <h1>Mehedi Hasan</h1>
-    <p>Welcome to My Personal Website</p>
-
-    <div class="buttons">
-      <a href="https://github.com/bulbulhassan601-commits" target="_blank">
-        GitHub
-      </a>
-    </div>
+    <div class="logo">SSC <span>2027</span></div>
+    <div class="menu">☰</div>
   </header>
 
-  <section>
+  <section class="hero">
+    <h1>Welcome to <span>Study Hub</span> 📚</h1>
 
-    <div class="card">
-      <h2>About Me</h2>
+    <p>
+      Your smart study companion for SSC 2027.<br>
+      Study hard. Stay focused. Make your dream come true. 🚀
+    </p>
+
+    <a href="#subjects" class="btn">Start Studying →</a>
+  </section>
+
+  <main class="container">
+
+    <h2 class="section-title">⏳ SSC 2027 Countdown</h2>
+
+    <div class="countdown">
+      <h3>Time Left</h3>
+
+      <div class="timer">
+        <div class="time-box">
+          <strong id="days">0</strong>
+          <small>Days</small>
+        </div>
+
+        <div class="time-box">
+          <strong id="hours">0</strong>
+          <small>Hours</small>
+        </div>
+
+        <div class="time-box">
+          <strong id="minutes">0</strong>
+          <small>Minutes</small>
+        </div>
+
+        <div class="time-box">
+          <strong id="seconds">0</strong>
+          <small>Seconds</small>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="subjects">📚 Subjects</h2>
+
+    <div class="subjects">
+
+      <div class="subject">
+        <div class="icon">⚡</div>
+        <h3>Physics</h3>
+        <p>Chapters • Notes • Practice</p>
+      </div>
+
+      <div class="subject">
+        <div class="icon">🧪</div>
+        <h3>Chemistry</h3>
+        <p>Chapters • Notes • Practice</p>
+      </div>
+
+      <div class="subject">
+        <div class="icon">📐</div>
+        <h3>Higher Math</h3>
+        <p>Math • Formulas • Problems</p>
+      </div>
+
+      <div class="subject">
+        <div class="icon">🧬</div>
+        <h3>Biology</h3>
+        <p>Chapters • Diagrams • Notes</p>
+      </div>
+
+      <div class="subject">
+        <div class="icon">➗</div>
+        <h3>General Math</h3>
+        <p>Math • Practice • Solutions</p>
+      </div>
+
+      <div class="subject">
+        <div class="icon">📖</div>
+        <h3>English</h3>
+        <p>Grammar • Writing • Reading</p>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">🎯 Study Progress</h2>
+
+    <div class="progress-card">
+
+      <div class="progress-info">
+        <span>Overall Progress</span>
+        <span>25%</span>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+
+    </div>
+
+    <div class="tips">
+      <h3>💡 Today's Motivation</h3>
+
       <p>
-        Hello! I am Mehedi Hasan.
-        Welcome to my personal website.
-        I am interested in technology, web development and learning new things.
+        Don't study to just pass the exam.
+        Study to become better than yesterday.
+        Small progress every day creates big results. 🔥
       </p>
     </div>
 
-    <div class="card">
-      <h2>My Skills</h2>
-
-      <div class="skills">
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">Web Design</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Contact</h2>
-      <p>You can contact me through GitHub.</p>
-
-      <div class="buttons">
-        <a href="https://github.com/bulbulhassan601-commits" target="_blank">
-          Visit My GitHub
-        </a>
-      </div>
-    </div>
-
-  </section>
+  </main>
 
   <footer>
-    © 2026 Mehedi Hasan. All Rights Reserved.
+    © 2026 SSC 2027 Study Hub • Made for Future Achievers 🚀
   </footer>
 
+
+  <script>
+
+    // SSC 2027 Countdown
+    // Date can be changed later when the official exam date is announced.
+
+    const examDate = new Date("2027-04-01T10:00:00").getTime();
+
+    function updateCountdown() {
+
+      const now = new Date().getTime();
+      const distance = examDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("days").innerText = "0";
+        document.getElementById("hours").innerText = "0";
+        document.getElementById("minutes").innerText = "0";
+        document.getElementById("seconds").innerText = "0";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60)) / 1000
+      );
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+  </script>
+
 </body>
-</html>
+          </html>
