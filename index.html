@@ -7,6 +7,43 @@
 
   <title>SSC 2027 Study Hub</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  .side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100vh;
+  background: #111936;
+  border-left: 1px solid #29345a;
+  padding: 80px 20px 20px;
+  z-index: 100;
+  transition: 0.3s;
+  box-shadow: -10px 0 30px rgba(0,0,0,.3);
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.side-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 14px 12px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.side-menu a:hover {
+  background: #242e52;
+}
+
+.menu {
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 101;
+}
 
   <style>
     * {
@@ -227,11 +264,35 @@
 </head>
 
 <body>
+<header>
+  <div class="logo">SSC <span>2027</span></div>
 
-  <header>
-    <div class="logo">SSC <span>2027</span></div>
-    <div class="menu">☰</div>
-  </header>
+  <div class="menu" onclick="toggleMenu()">☰</div>
+</header>
+
+<div id="sideMenu" class="side-menu">
+
+  <a href="index.html">🏠 Home</a>
+
+  <a href="#subjects">📚 Subjects</a>
+
+  <a href="#">🏫 Board Questions</a>
+
+  <a href="#">❓ MCQ Practice</a>
+
+  <a href="#">✍️ CQ / Written</a>
+
+  <a href="#">📝 Notes</a>
+
+  <a href="#">⭐ Important Questions</a>
+
+  <a href="#">🔄 Quick Revision</a>
+
+  <a href="#">📊 Study Progress</a>
+
+  <a href="login.html">🚪 Logout</a>
+
+</div>
 
   <section class="hero">
     <h1>Welcome to <span>Study Hub</span> 📚</h1>
@@ -398,6 +459,11 @@
 
   });
   </script>
+    <script>
+  function toggleMenu() {
+    document.getElementById("sideMenu").classList.toggle("active");
+  }
+    </script>
 
 </body>
           </html>
