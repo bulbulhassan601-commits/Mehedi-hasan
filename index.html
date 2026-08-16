@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>SSC 2027 Study Hub</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     * {
@@ -389,6 +390,27 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
+  </script>
+  <script>
+  const SUPABASE_URL =
+    "https://odlqxknocjohpcfpymdj.supabase.co";
+
+  const SUPABASE_KEY =
+    "sb_publishable_DoiZySdq_1PUWpaFXRzE8Q_DNwZrdug";
+
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+  supabaseClient.auth.getSession().then(function(result) {
+
+    if (!result.data.session) {
+      window.location.href = "login.html";
+    }
+
+  });
   </script>
 
 </body>
