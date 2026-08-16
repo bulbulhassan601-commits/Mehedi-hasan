@@ -347,49 +347,35 @@
 
 
   <script>
+  const examDate = new Date("January 7, 2027 10:00:00").getTime();
 
-    // SSC 2027 Countdown
-    // Date can be changed later when the official exam date is announced.
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = examDate - now;
 
-    const examDate = new Date("2027-01-07T10:00:00").getTime();
-
-    function updateCountdown() {
-
-      const now = new Date().getTime();
-      const distance = examDate - now;
-
-      if (distance <= 0) {
-        document.getElementById("days").innerText = "0";
-        document.getElementById("hours").innerText = "0";
-        document.getElementById("minutes").innerText = "0";
-        document.getElementById("seconds").innerText = "0";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
-
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
-
-      const seconds = Math.floor(
-        (distance % (1000 * 60)) / 1000
-      );
-
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
+    if (distance <= 0) {
+      document.getElementById("days").textContent = "0";
+      document.getElementById("hours").textContent = "0";
+      document.getElementById("minutes").textContent = "0";
+      document.getElementById("seconds").textContent = "0";
+      return;
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    document.getElementById("days").textContent =
+      Math.floor(distance / (1000 * 60 * 60 * 24));
 
+    document.getElementById("hours").textContent =
+      Math.floor((distance / (1000 * 60 * 60)) % 24);
+
+    document.getElementById("minutes").textContent =
+      Math.floor((distance / (1000 * 60)) % 60);
+
+    document.getElementById("seconds").textContent =
+      Math.floor((distance / 1000) % 60);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
   </script>
   <script>
   const SUPABASE_URL =
