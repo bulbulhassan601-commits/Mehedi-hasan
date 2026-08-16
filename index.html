@@ -291,7 +291,7 @@
 
   <a href="#">📊 Study Progress</a>
 
-  <a href="login.html">🚪 Logout</a>
+  <a href="#" onclick="logout()">🚪 Logout</a>
 
 </div>
 
@@ -461,7 +461,10 @@
   });
   </script>
     <script>
-  function toggleMenu() {
+  function toggleMenu() {async function logout() {
+  await supabaseClient.auth.signOut();
+  window.location.href = "login.html";
+      }
     document.getElementById("sideMenu").classList.toggle("active");
   }
     </script>
