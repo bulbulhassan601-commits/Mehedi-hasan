@@ -1,1 +1,796 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Chapter 01 | SSC 2027 Physics</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b1020;
+      color: white;
+    }
+
+    header {
+      background: #111936;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #29345a;
+    }
+
+    header h2 {
+      color: #8b84ff;
+      font-size: 20px;
+    }
+
+    .home {
+      color: white;
+      text-decoration: none;
+      background: #6c63ff;
+      padding: 9px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 35px 18px;
+      background: linear-gradient(135deg, #121a3a, #17124a);
+    }
+
+    .hero .icon {
+      font-size: 50px;
+    }
+
+    .hero h1 {
+      font-size: 27px;
+      margin: 10px 0;
+    }
+
+    .hero p {
+      color: #b8bfd8;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 15px 40px;
+    }
+
+    .category-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .category-btn {
+      border: none;
+      color: white;
+      background: #242e52;
+      padding: 11px 14px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: #6c63ff;
+    }
+
+    .content {
+      display: none;
+      background: #121a33;
+      border: 1px solid #29345a;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .content h2 {
+      color: #8b84ff;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .content h3 {
+      color: #ffffff;
+      margin: 18px 0 8px;
+    }
+
+    .box {
+      background: #0b1020;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 12px 0;
+      line-height: 1.8;
+    }
+
+    .box p {
+      color: #d7dbea;
+      margin: 5px 0;
+    }
+
+    .formula {
+      background: #202a4b;
+      border-left: 4px solid #6c63ff;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .mcq {
+      background: #0b1020;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 12px 0;
+      line-height: 1.8;
+    }
+
+    .answer {
+      color: #8b84ff;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .important {
+      border-left: 4px solid #6c63ff;
+    }
+
+    .year {
+      color: #8b84ff;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #737c9c;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>⚡ Physics</h2>
+  <a class="home" href="physics.html">← Chapters</a>
+</header>
+
+<section class="hero">
+  <div class="icon">📚</div>
+
+  <h1>Chapter 01</h1>
+
+  <p>
+    ভৌত রাশি এবং তাদের পরিমাপ
+  </p>
+
+  <p>
+    SSC 2027 Physics
+  </p>
+</section>
+
+<main class="container">
+
+  <!-- Category Buttons -->
+
+  <div class="category-buttons">
+
+    <button class="category-btn active"
+      onclick="showSection('notes', this)">
+      📖 Notes
+    </button>
+
+    <button class="category-btn"
+      onclick="showSection('mcq', this)">
+      ❓ MCQ
+    </button>
+
+    <button class="category-btn"
+      onclick="showSection('cq', this)">
+      ✍️ CQ
+    </button>
+
+    <button class="category-btn"
+      onclick="showSection('numerical', this)">
+      🧮 Numerical
+    </button>
+
+    <button class="category-btn"
+      onclick="showSection('board', this)">
+      🏫 Board 2022–25
+    </button>
+
+    <button class="category-btn"
+      onclick="showSection('important', this)">
+      ⭐ Important
+    </button>
+
+    <button class="category-btn"
+      onclick="showSection('revision', this)">
+      🔄 Revision
+    </button>
+
+  </div>
+
+
+  <!-- NOTES -->
+
+  <section id="notes" class="content active">
+
+    <h2>📖 Chapter Notes</h2>
+
+    <div class="box">
+
+      <h3>ভৌত রাশি কী?</h3>
+
+      <p>
+        যে রাশিকে পরিমাপ করা যায় এবং সংখ্যামান ও এককের মাধ্যমে প্রকাশ করা যায়,
+        তাকে ভৌত রাশি বলে।
+      </p>
+
+    </div>
+
+
+    <div class="box">
+
+      <h3>মৌলিক রাশি</h3>
+
+      <p>
+        যে সকল ভৌত রাশি অন্য কোনো ভৌত রাশির ওপর নির্ভরশীল নয়,
+        তাদের মৌলিক রাশি বলে।
+      </p>
+
+      <p>দৈর্ঘ্য — metre (m)</p>
+      <p>ভর — kilogram (kg)</p>
+      <p>সময় — second (s)</p>
+      <p>তড়িৎ প্রবাহ — ampere (A)</p>
+      <p>তাপমাত্রা — kelvin (K)</p>
+      <p>পদার্থের পরিমাণ — mole (mol)</p>
+      <p>দীপন তীব্রতা — candela (cd)</p>
+
+    </div>
+
+
+    <div class="box">
+
+      <h3>লব্ধ রাশি</h3>
+
+      <p>
+        মৌলিক রাশিগুলোর সাহায্যে গাণিতিক সম্পর্কের মাধ্যমে
+        যে রাশিগুলো পাওয়া যায়, তাদের লব্ধ রাশি বলে।
+      </p>
+
+      <p>বেগ, ত্বরণ, বল, কাজ, ক্ষমতা, ঘনত্ব ইত্যাদি লব্ধ রাশির উদাহরণ।</p>
+
+    </div>
+
+
+    <div class="box">
+
+      <h3>SI একক</h3>
+
+      <p>
+        আন্তর্জাতিকভাবে স্বীকৃত একক পদ্ধতিকে SI পদ্ধতি বলা হয়।
+      </p>
+
+      <div class="formula">
+        দৈর্ঘ্য → m
+      </div>
+
+      <div class="formula">
+        ভর → kg
+      </div>
+
+      <div class="formula">
+        সময় → s
+      </div>
+
+      <div class="formula">
+        তাপমাত্রা → K
+      </div>
+
+    </div>
+
+
+    <div class="box">
+
+      <h3>মাত্রা</h3>
+
+      <p>
+        কোনো লব্ধ রাশি মৌলিক রাশিগুলোর ওপর কীভাবে নির্ভরশীল,
+        তা প্রকাশ করাকে মাত্রা বলে।
+      </p>
+
+      <div class="formula">
+        বেগ = [LT⁻¹]
+      </div>
+
+      <div class="formula">
+        ত্বরণ = [LT⁻²]
+      </div>
+
+      <div class="formula">
+        বল = [MLT⁻²]
+      </div>
+
+      <div class="formula">
+        কাজ = [ML²T⁻²]
+      </div>
+
+    </div>
+
+
+    <div class="box">
+
+      <h3>পরিমাপের যন্ত্র</h3>
+
+      <p>
+        📏 মিটার স্কেল — দৈর্ঘ্য পরিমাপ
+      </p>
+
+      <p>
+        🔬 ভার্নিয়ার ক্যালিপার্স — ছোট দৈর্ঘ্য/ব্যাস/গভীরতা পরিমাপ
+      </p>
+
+      <p>
+        🔩 স্ক্রু গজ — খুব ছোট দৈর্ঘ্য বা তারের ব্যাস পরিমাপ
+      </p>
+
+      <p>
+        ⏱️ স্টপওয়াচ — সময়ের ব্যবধান পরিমাপ
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MCQ -->
+
+  <section id="mcq" class="content">
+
+    <h2>❓ MCQ Practice</h2>
+
+
+    <div class="mcq">
+
+      <p>
+        <b>১. নিচের কোনটি মৌলিক রাশি?</b>
+      </p>
+
+      <p>A) বেগ</p>
+      <p>B) বল</p>
+      <p>C) দৈর্ঘ্য</p>
+      <p>D) ঘনত্ব</p>
+
+      <p class="answer">
+        ✅ উত্তর: C) দৈর্ঘ্য
+      </p>
+
+    </div>
+
+
+    <div class="mcq">
+
+      <p>
+        <b>২. সময়ের SI একক কোনটি?</b>
+      </p>
+
+      <p>A) মিনিট</p>
+      <p>B) ঘণ্টা</p>
+      <p>C) সেকেন্ড</p>
+      <p>D) দিন</p>
+
+      <p class="answer">
+        ✅ উত্তর: C) সেকেন্ড
+      </p>
+
+    </div>
+
+
+    <div class="mcq">
+
+      <p>
+        <b>৩. বেগের মাত্রা কোনটি?</b>
+      </p>
+
+      <p>A) [LT⁻¹]</p>
+      <p>B) [LT⁻²]</p>
+      <p>C) [MLT⁻²]</p>
+      <p>D) [ML²T⁻²]</p>
+
+      <p class="answer">
+        ✅ উত্তর: A) [LT⁻¹]
+      </p>
+
+    </div>
+
+
+    <div class="mcq">
+
+      <p>
+        <b>৪. বলের SI একক কোনটি?</b>
+      </p>
+
+      <p>A) Joule</p>
+      <p>B) Newton</p>
+      <p>C) Watt</p>
+      <p>D) Pascal</p>
+
+      <p class="answer">
+        ✅ উত্তর: B) Newton
+      </p>
+
+    </div>
+
+
+    <div class="mcq">
+
+      <p>
+        <b>৫. কোন যন্ত্র ক্ষুদ্র দৈর্ঘ্য পরিমাপে ব্যবহৃত হয়?</b>
+      </p>
+
+      <p>A) স্ক্রু গজ</p>
+      <p>B) থার্মোমিটার</p>
+      <p>C) ব্যারোমিটার</p>
+      <p>D) কম্পাস</p>
+
+      <p class="answer">
+        ✅ উত্তর: A) স্ক্রু গজ
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CQ -->
+
+  <section id="cq" class="content">
+
+    <h2>✍️ CQ Practice</h2>
+
+
+    <div class="box">
+
+      <h3>সৃজনশীল প্রশ্ন ১</h3>
+
+      <p>
+        ক) ভৌত রাশি কী?
+      </p>
+
+      <p>
+        খ) মৌলিক রাশি বলতে কী বোঝ?
+      </p>
+
+      <p>
+        গ) বেগের মাত্রা নির্ণয় কর।
+      </p>
+
+      <p>
+        ঘ) SI একক ব্যবস্থার সুবিধা ব্যাখ্যা কর।
+      </p>
+
+      <h3>উত্তর</h3>
+
+      <p>
+        ক) যে রাশিকে পরিমাপ করা যায় এবং এককসহ প্রকাশ করা যায়
+        তাকে ভৌত রাশি বলে।
+      </p>
+
+      <p>
+        খ) যে রাশি অন্য কোনো রাশির ওপর নির্ভরশীল নয় তাকে
+        মৌলিক রাশি বলে।
+      </p>
+
+      <p>
+        গ) বেগ = দৈর্ঘ্য/সময়।
+        সুতরাং বেগের মাত্রা = [LT⁻¹]।
+      </p>
+
+      <p>
+        ঘ) SI একটি আন্তর্জাতিকভাবে স্বীকৃত একক পদ্ধতি।
+        ফলে বিভিন্ন দেশের পরিমাপের ফল সহজে তুলনা করা যায়।
+      </p>
+
+    </div>
+
+
+    <div class="box">
+
+      <h3>সৃজনশীল প্রশ্ন ২</h3>
+
+      <p>
+        ক) পরিমাপ কী?
+      </p>
+
+      <p>
+        খ) লব্ধ রাশি কী?
+      </p>
+
+      <p>
+        গ) দৈর্ঘ্য ৫ m এবং প্রস্থ ৩ m হলে ক্ষেত্রফল নির্ণয় কর।
+      </p>
+
+      <p>
+        ঘ) সঠিক পরিমাপ কেন গুরুত্বপূর্ণ?
+      </p>
+
+      <h3>উত্তর</h3>
+
+      <p>
+        ক) কোনো ভৌত রাশির মানকে নির্দিষ্ট এককের সঙ্গে তুলনা করাকে
+        পরিমাপ বলে।
+      </p>
+
+      <p>
+        খ) মৌলিক রাশির সাহায্যে গাণিতিকভাবে প্রকাশিত রাশিকে
+        লব্ধ রাশি বলে।
+      </p>
+
+      <p>
+        গ) ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ
+        = ৫ × ৩ = <b>১৫ m²</b>
+      </p>
+
+      <p>
+        ঘ) সঠিক পরিমাপ না হলে বিজ্ঞান, প্রকৌশল ও দৈনন্দিন কাজে
+        ভুল ফলাফল হতে পারে।
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- NUMERICAL -->
+
+  <section id="numerical" class="content">
+
+    <h2>🧮 Numerical Practice</h2>
+
+
+    <div class="box">
+
+      <h3>সমস্যা ১</h3>
+
+      <p>
+        একটি বস্তুর ভর ২০০ kg এবং আয়তন ৪ m³।
+        বস্তুটির ঘনত্ব নির্ণয় কর।
+      </p>
+
+      <p>
+        ঘনত্ব = ভর / আয়তন
+      </p>
+
+      <div class="formula">
+        ρ = 200 / 4 = 50 kg/m³
+      </div>
+
+      <p class="answer">
+        ✅ উত্তর: ৫০ kg/m³
+      </p>
+
+    </div>
+
+
+    <div class="box">
+
+      <h3>সমস্যা ২</h3>
+
+      <p>
+        একটি আয়তক্ষেত্রের দৈর্ঘ্য ৮ m এবং প্রস্থ ৫ m।
+        এর ক্ষেত্রফল নির্ণয় কর।
+      </p>
+
+      <div class="formula">
+        ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ
+      </div>
+
+      <div class="formula">
+        = ৮ × ৫ = ৪০ m²
+      </div>
+
+      <p class="answer">
+        ✅ উত্তর: ৪০ m²
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOARD -->
+
+  <section id="board" class="content">
+
+    <h2>🏫 Board Questions 2022–2025</h2>
+
+    <div class="box">
+
+      <p>
+        <span class="year">2022</span>
+      </p>
+
+      <p>
+        ভৌত রাশি, একক, পরিমাপ ও মৌলিক/লব্ধ রাশির
+        ধারণা ভালোভাবে প্রস্তুত করো।
+      </p>
+
+    </div>
+
+
+    <div class="box">
+
+      <p>
+        <span class="year">2023</span>
+      </p>
+
+      <p>
+        SI একক, মাত্রা এবং পরিমাপের যন্ত্র সম্পর্কিত
+        প্রশ্নের ধরন অনুশীলন করো।
+      </p>
+
+    </div>
+
+
+    <div class="box">
+
+      <p>
+        <span class="year">2024</span>
+      </p>
+
+      <p>
+        মৌলিক ও লব্ধ রাশি, একক এবং মাত্রা থেকে
+        MCQ/CQ প্রস্তুত করো।
+      </p>
+
+    </div>
+
+
+    <div class="box">
+
+      <p>
+        <span class="year">2025</span>
+      </p>
+
+      <p>
+        পরিমাপ, SI একক, মাত্রা এবং সংশ্লিষ্ট numerical
+        ভালোভাবে অনুশীলন করো।
+      </p>
+
+    </div>
+
+    <div class="box">
+
+      <p>
+        ⭐ এখানে ২০২২–২০২৫ সালের যাচাই করা বোর্ড প্রশ্নের
+        topic-wise প্রশ্ন ও নিজের ভাষায় সমাধান যোগ করা হবে।
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- IMPORTANT -->
+
+  <section id="important" class="content">
+
+    <h2>⭐ Most Important</h2>
+
+
+    <div class="box important">
+
+      <p>⭐ ভৌত রাশি কী?</p>
+
+      <p>⭐ মৌলিক রাশি ও লব্ধ রাশির পার্থক্য।</p>
+
+      <p>⭐ SI পদ্ধতি কী?</p>
+
+      <p>⭐ SI মৌলিক রাশি ও একক।</p>
+
+      <p>⭐ মাত্রা কী?</p>
+
+      <p>⭐ বেগ, ত্বরণ ও বলের মাত্রা।</p>
+
+      <p>⭐ ভার্নিয়ার ক্যালিপার্সের ব্যবহার।</p>
+
+      <p>⭐ স্ক্রু গজের ব্যবহার।</p>
+
+      <p>⭐ পরিমাপের প্রয়োজনীয়তা।</p>
+
+    </div>
+
+  </section>
+
+
+  <!-- REVISION -->
+
+  <section id="revision" class="content">
+
+    <h2>🔄 Quick Revision</h2>
+
+
+    <div class="box">
+
+      <h3>মনে রাখবে</h3>
+
+      <p>✔ দৈর্ঘ্যের SI একক = metre (m)</p>
+
+      <p>✔ ভরের SI একক = kilogram (kg)</p>
+
+      <p>✔ সময়ের SI একক = second (s)</p>
+
+      <p>✔ তাপমাত্রার SI একক = kelvin (K)</p>
+
+      <p>✔ বেগের মাত্রা = [LT⁻¹]</p>
+
+      <p>✔ ত্বরণের মাত্রা = [LT⁻²]</p>
+
+      <p>✔ বলের মাত্রা = [MLT⁻²]</p>
+
+      <p>✔ কাজের মাত্রা = [ML²T⁻²]</p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  SSC 2027 Study Hub • Physics ⚡
+</footer>
+
+
+<script>
+
+function showSection(sectionId, button) {
+
+  const sections = document.querySelectorAll(".content");
+
+  sections.forEach(function(section) {
+    section.classList.remove("active");
+  });
+
+  const buttons = document.querySelectorAll(".category-btn");
+
+  buttons.forEach(function(btn) {
+    btn.classList.remove("active");
+  });
+
+  document.getElementById(sectionId).classList.add("active");
+
+  button.classList.add("active");
+
+  window.scrollTo({
+    top: 250,
+    behavior: "smooth"
+  });
+}
+
+</script>
+
+</body>
+                     </html>
