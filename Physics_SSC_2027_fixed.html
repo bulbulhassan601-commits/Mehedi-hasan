@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics | SSC 2027</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0b1020;color:white}
+header{background:#111936;padding:18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #29345a}
+header h2{color:#8b84ff}.home{color:white;text-decoration:none;background:#6c63ff;padding:9px 15px;border-radius:20px;font-size:14px}
+.hero{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#121a3a,#17124a)}
+.hero .icon{font-size:55px}.hero h1{font-size:35px;margin:10px 0}.hero p{color:#b8bfd8}
+.container{max-width:900px;margin:auto;padding:25px 18px}.title{margin:20px 0 15px;font-size:23px}
+.chapter{background:#121a33;border:1px solid #29345a;border-radius:16px;padding:18px;margin-bottom:12px}
+.chapter h3{margin-bottom:7px}.chapter p{color:#969fbd;font-size:14px;line-height:1.5}
+.buttons{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.btn{border:none;cursor:pointer;color:white;background:#242e52;padding:9px 14px;border-radius:20px;font-size:13px}
+.btn:hover{background:#6c63ff}
+.modal{display:none;position:fixed;z-index:1000;inset:0;background:rgba(0,0,0,.75);padding:20px;overflow-y:auto}
+.modal-box{max-width:800px;margin:30px auto;background:#121a33;border:1px solid #29345a;border-radius:18px;padding:22px;position:relative}
+.close{position:absolute;right:15px;top:12px;border:none;background:#242e52;color:white;width:35px;height:35px;border-radius:50%;cursor:pointer;font-size:18px}
+.modal-box h2{color:#8b84ff;margin-bottom:18px;padding-right:40px}
+.study-section{background:#0b1020;border-radius:12px;padding:15px;margin:12px 0;line-height:1.7}
+.study-section h3{color:#8b84ff;margin-bottom:8px}.study-section p{color:#d7dbea;margin-bottom:8px}
+.formula{background:#1b2445;padding:10px;border-radius:8px;color:#fff;margin:8px 0;font-weight:bold}
+.mcq,.cq{background:#0b1020;padding:14px;border-radius:12px;margin:12px 0}
+.mcq p,.cq p{color:white;margin-bottom:8px}.answer{color:#8b84ff;font-weight:bold;margin-top:8px}
+footer{text-align:center;padding:30px;color:#737c9c;font-size:13px}
+</style>
+</head>
+<body>
+<header><h2>⚡ Physics</h2><a class="home" href="index.html">← Home</a></header>
+<section class="hero"><div class="icon">⚡</div><h1>SSC 2027 Physics</h1><p>Learn • Practice • Improve • Succeed 🚀</p></section>
+<main class="container">
+<h2 class="title">📚 Physics Chapters</h2>
+<div id="chapters"></div>
+</main>
+<footer>SSC 2027 Study Hub • Physics ⚡</footer>
+
+<div class="modal" id="studyModal">
+<div class="modal-box"><button class="close" onclick="closeStudy()">×</button><h2 id="studyTitle">Study</h2><div id="studyContent"></div></div>
+</div>
+
+<script>
+const chapters=[
+["ch1","Chapter 01 — Physical Quantities & Measurement","ভৌত রাশি, একক, পরিমাপ, মাত্রা ও পরিমাপের ধারণা।"],
+["ch2","Chapter 02 — Motion","গতি, দ্রুতি, বেগ, ত্বরণ ও গতির সমীকরণ।"],
+["ch3","Chapter 03 — Force","বল, নিউটনের সূত্র ও বলের প্রয়োগ।"],
+["ch4","Chapter 04 — Work, Energy & Power","কাজ, ক্ষমতা, গতিশক্তি ও বিভব শক্তি।"],
+["ch5","Chapter 05 — States of Matter & Pressure","পদার্থের অবস্থা, ঘনত্ব, চাপ ও সংশ্লিষ্ট ধারণা।"],
+["ch6","Chapter 06 — Effect of Heat","তাপমাত্রা, তাপ সঞ্চালন ও তাপের প্রভাব।"]
+];
+document.getElementById("chapters").innerHTML=chapters.map(c=>`
+<div class="chapter"><h3>${c[1]}</h3><p>${c[2]}</p>
+<div class="buttons">
+<button class="btn" onclick="openStudy('${c[0]}','notes')">📝 Notes</button>
+<button class="btn" onclick="openStudy('${c[0]}','mcq')">❓ MCQ</button>
+<button class="btn" onclick="openStudy('${c[0]}','cq')">✍️ CQ</button>
+</div></div>`).join("");
+
+const mcqs=[
+["নিচের কোনটি মৌলিক রাশি?","A) বেগ","B) বল","C) দৈর্ঘ্য","D) ঘনত্ব","C) দৈর্ঘ্য"],
+["সময়ের SI একক কোনটি?","A) মিনিট","B) ঘণ্টা","C) সেকেন্ড","D) দিন","C) সেকেন্ড"],
+["ভরের SI একক কোনটি?","A) গ্রাম","B) কিলোগ্রাম","C) টন","D) মিলিগ্রাম","B) কিলোগ্রাম"],
+["দৈর্ঘ্যের SI একক কোনটি?","A) cm","B) km","C) m","D) mm","C) m"],
+["তড়িৎ প্রবাহের SI একক কোনটি?","A) Volt","B) Ampere","C) Ohm","D) Watt","B) Ampere"],
+["তাপমাত্রার SI একক কোনটি?","A) Celsius","B) Fahrenheit","C) Kelvin","D) Joule","C) Kelvin"],
+["পদার্থের পরিমাণের SI একক কোনটি?","A) mole","B) kg","C) candela","D) ampere","A) mole"],
+["দীপন তীব্রতার SI একক কোনটি?","A) lumen","B) candela","C) lux","D) watt","B) candela"],
+["নিচের কোনটি লব্ধ রাশি?","A) দৈর্ঘ্য","B) ভর","C) সময়","D) বেগ","D) বেগ"],
+["বেগের মাত্রা কোনটি?","A) [LT⁻¹]","B) [LT⁻²]","C) [MLT⁻²]","D) [ML²T⁻²]","A) [LT⁻¹]"],
+["ত্বরণের মাত্রা কোনটি?","A) [L]","B) [LT⁻¹]","C) [LT⁻²]","D) [MLT⁻²]","C) [LT⁻²]"],
+["বলের মাত্রা কোনটি?","A) [MLT⁻¹]","B) [MLT⁻²]","C) [ML²T⁻²]","D) [LT⁻²]","B) [MLT⁻²]"],
+["কাজের মাত্রা কোনটি?","A) [ML²T⁻²]","B) [MLT⁻²]","C) [MLT⁻¹]","D) [LT⁻¹]","A) [ML²T⁻²]"],
+["শক্তির SI একক কোনটি?","A) Newton","B) Watt","C) Joule","D) Pascal","C) Joule"],
+["বলের SI একক কোনটি?","A) Joule","B) Newton","C) Watt","D) Pascal","B) Newton"],
+["চাপের SI একক কোনটি?","A) Pascal","B) Newton","C) Joule","D) Watt","A) Pascal"],
+["ক্ষমতার SI একক কোনটি?","A) Joule","B) Watt","C) Newton","D) Pascal","B) Watt"],
+["দৈর্ঘ্য মাপার সাধারণ যন্ত্র কোনটি?","A) মিটার স্কেল","B) স্টপওয়াচ","C) থার্মোমিটার","D) ব্যারোমিটার","A) মিটার স্কেল"],
+["সময়ের ব্যবধান মাপতে কোন যন্ত্র ব্যবহৃত হয়?","A) ভার্নিয়ার ক্যালিপার্স","B) স্টপওয়াচ","C) স্ক্রু গজ","D) মিটার স্কেল","B) স্টপওয়াচ"],
+["ক্ষুদ্র দৈর্ঘ্য মাপতে কোন যন্ত্র বেশি উপযোগী?","A) স্ক্রু গজ","B) ঘড়ি","C) থার্মোমিটার","D) ব্যারোমিটার","A) স্ক্রু গজ"],
+["ভার্নিয়ার ক্যালিপার্স দিয়ে কী মাপা যায়?","A) সময়","B) তাপমাত্রা","C) দৈর্ঘ্য ও ব্যাস","D) তড়িৎ প্রবাহ","C) দৈর্ঘ্য ও ব্যাস"],
+["ঘনত্বের সূত্র কোনটি?","A) ভর × আয়তন","B) ভর / আয়তন","C) আয়তন / ভর","D) ভর + আয়তন","B) ভর / আয়তন"],
+["২ m দৈর্ঘ্য ও ৩ m প্রস্থের ক্ষেত্রফল কত?","A) ৫ m²","B) ৬ m²","C) ৮ m²","D) ৯ m²","B) ৬ m²"],
+["আয়তনের SI একক কোনটি?","A) m","B) m²","C) m³","D) cm","C) m³"],
+["ক্ষেত্রফলের SI একক কোনটি?","A) m","B) m²","C) m³","D) kg","B) m²"],
+["১ km সমান কত m?","A) ১০","B) ১০০","C) ১০০০","D) ১০,০০০","C) ১০০০ m"],
+["১ m সমান কত cm?","A) ১০","B) ৫০","C) ১০০","D) ১০০০","C) ১০০ cm"],
+["১ kg সমান কত g?","A) ১০","B) ১০০","C) ১০০০","D) ১০,০০০","C) ১০০০ g"],
+["পরিমাপ বলতে কী বোঝায়?","A) অনুমান করা","B) এককের সাথে তুলনা করা","C) যোগ করা","D) বিয়োগ করা","B) এককের সাথে তুলনা করা"],
+["SI পদ্ধতিতে মোট মৌলিক রাশি কয়টি?","A) ৫","B) ৬","C) ৭","D) ৮","C) ৭"],
+["কোনটি স্কেলার রাশি?","A) বেগ","B) সরণ","C) দ্রুতি","D) বল","C) দ্রুতি"],
+["কোনটি ভেক্টর রাশি?","A) ভর","B) সময়","C) তাপমাত্রা","D) সরণ","D) সরণ"],
+["বেগের সূত্র কোনটি?","A) সময় / সরণ","B) সরণ / সময়","C) ভর / আয়তন","D) বল / ক্ষেত্রফল","B) সরণ / সময়"],
+["দ্রুতির সূত্র কোনটি?","A) দূরত্ব / সময়","B) সময় / দূরত্ব","C) সরণ / সময়","D) ভর / আয়তন","A) দূরত্ব / সময়"],
+["মাত্রা কী প্রকাশ করে?","A) রাশির রং","B) মৌলিক রাশির ওপর নির্ভরতা","C) বস্তুর আকার","D) বস্তুর ভর","B) মৌলিক রাশির ওপর নির্ভরতা"],
+["বেগের মাত্রায় সময়ের ঘাত কত?","A) ১","B) ০","C) −১","D) −২","C) −১"],
+["ত্বরণের মাত্রায় সময়ের ঘাত কত?","A) ১","B) −১","C) −২","D) ২","C) −২"],
+["ভরের মাত্রা কোনটি?","A) [M]","B) [L]","C) [T]","D) [ML]","A) [M]"],
+["সময়ের মাত্রা কোনটি?","A) [M]","B) [L]","C) [T]","D) [LT]","C) [T]"],
+["দৈর্ঘ্যের মাত্রা কোনটি?","A) [M]","B) [L]","C) [T]","D) [ML]","B) [L]"],
+["১ ঘণ্টায় কত সেকেন্ড?","A) ৬০","B) ৬০০","C) ৩৬০০","D) ৩৬,০০০","C) ৩৬০০ s"],
+["১ মিনিটে কত সেকেন্ড?","A) ৩০","B) ৬০","C) ৯০","D) ১০০","B) ৬০ s"],
+["৫ m দৈর্ঘ্য ও ২ m প্রস্থের আয়তক্ষেত্রের ক্ষেত্রফল কত?","A) ৭ m²","B) ১০ m²","C) ১২ m²","D) ১৫ m²","B) ১০ m²"],
+["২ kg ভরের বস্তুর আয়তন ১ m³ হলে ঘনত্ব কত?","A) ১ kg/m³","B) ২ kg/m³","C) ৩ kg/m³","D) ৪ kg/m³","B) ২ kg/m³"],
+["নিচের কোনটি মৌলিক রাশি নয়?","A) সময়","B) ভর","C) দৈর্ঘ্য","D) ক্ষেত্রফল","D) ক্ষেত্রফল"],
+["নিচের কোনটি লব্ধ একক?","A) metre","B) kilogram","C) second","D) Newton","D) Newton"],
+["Newton কোন রাশির একক?","A) বল","B) কাজ","C) ক্ষমতা","D) চাপ","A) বল"],
+["Joule কোন রাশির একক?","A) বল","B) কাজ","C) চাপ","D) ক্ষমতা","B) কাজ"],
+["Watt কোন রাশির একক?","A) শক্তি","B) কাজ","C) ক্ষমতা","D) বল","C) ক্ষমতা"],
+["Pascal কোন রাশির একক?","A) চাপ","B) শক্তি","C) বল","D) ক্ষমতা","A) চাপ"],
+["স্ক্রু গজ সাধারণত কোন ক্ষুদ্র মাপ নিতে ব্যবহৃত হয়?","A) সময়","B) দৈর্ঘ্য/ব্যাস","C) তাপমাত্রা","D) ভর","B) দৈর্ঘ্য/ব্যাস"],
+["ভার্নিয়ার ক্যালিপার্সের প্রধান সুবিধা কী?","A) সময় মাপে","B) ক্ষুদ্র দৈর্ঘ্য তুলনামূলক নির্ভুলভাবে মাপে","C) তাপমাত্রা মাপে","D) ভর মাপে","B) ক্ষুদ্র দৈর্ঘ্য তুলনামূলক নির্ভুলভাবে মাপে"],
+["পরিমাপের ফল সাধারণত কী দিয়ে প্রকাশ করা হয়?","A) শুধু সংখ্যা","B) শুধু একক","C) সংখ্যা ও একক","D) শুধু প্রতীক","C) সংখ্যা ও একক"],
+["SI-এর পূর্ণরূপ কী?","A) Standard Index","B) International System of Units","C) Scientific Index","D) System of Instruments","B) International System of Units"],
+["সঠিক পরিমাপের জন্য কোনটি গুরুত্বপূর্ণ?","A) উপযুক্ত যন্ত্র নির্বাচন","B) অনুমান","C) একক বাদ দেওয়া","D) যেকোনো সংখ্যা লেখা","A) উপযুক্ত যন্ত্র নির্বাচন"]
+];
+
+const studyData={
+ch1:{title:"Chapter 01 — Physical Quantities & Measurement",
+notes:`<div class="study-section"><h3>📖 গুরুত্বপূর্ণ ধারণা</h3><p><b>ভৌত রাশি:</b> যে রাশিকে পরিমাপ করা যায় এবং সংখ্যার সাথে একক প্রকাশ করা যায় তাকে ভৌত রাশি বলে।</p><p><b>পরিমাপ:</b> কোনো ভৌত রাশির মানকে নির্দিষ্ট এককের সাথে তুলনা করার প্রক্রিয়াকে পরিমাপ বলে।</p><p><b>মৌলিক রাশি:</b> অন্য কোনো রাশির ওপর নির্ভর করে সংজ্ঞায়িত নয় এমন রাশি।</p><p><b>লব্ধ রাশি:</b> মৌলিক রাশি থেকে গাণিতিক সম্পর্কের মাধ্যমে পাওয়া রাশি।</p></div>
+<div class="study-section"><h3>📏 SI মৌলিক রাশি ও একক</h3><p>দৈর্ঘ্য → metre (m)</p><p>ভর → kilogram (kg)</p><p>সময় → second (s)</p><p>তড়িৎ প্রবাহ → ampere (A)</p><p>তাপমাত্রা → kelvin (K)</p><p>পদার্থের পরিমাণ → mole (mol)</p><p>দীপন তীব্রতা → candela (cd)</p></div>
+<div class="study-section"><h3>🧮 গুরুত্বপূর্ণ সূত্র</h3><div class="formula">ঘনত্ব = ভর / আয়তন</div><div class="formula">বেগ = সরণ / সময়</div><div class="formula">ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ</div><div class="formula">আয়তন = দৈর্ঘ্য × প্রস্থ × উচ্চতা</div></div>
+<div class="study-section"><h3>📐 মাত্রা</h3><p>বেগ → [LT⁻¹]</p><p>ত্বরণ → [LT⁻²]</p><p>বল → [MLT⁻²]</p><p>কাজ → [ML²T⁻²]</p></div>
+<div class="study-section"><h3>🔬 পরিমাপের যন্ত্র</h3><p>মিটার স্কেল → সাধারণ দৈর্ঘ্য</p><p>স্টপওয়াচ → সময়ের ব্যবধান</p><p>স্ক্রু গজ → ক্ষুদ্র দৈর্ঘ্য/ব্যাস</p><p>ভার্নিয়ার ক্যালিপার্স → দৈর্ঘ্য ও ব্যাস</p></div>`,
+mcq:"ch1",cq:`<div class="cq"><p><b>১.</b> মৌলিক ও লব্ধ রাশির পার্থক্য ব্যাখ্যা করো।</p><p><b>২.</b> SI পদ্ধতির সাতটি মৌলিক রাশি ও একক লেখো।</p><p><b>৩.</b> পরিমাপ কী? উপযুক্ত একক ও যন্ত্র ব্যবহারের গুরুত্ব লেখো।</p></div>`},
+ch2:{title:"Chapter 02 — Motion",notes:`<div class="study-section"><h3>📖 গুরুত্বপূর্ণ ধারণা</h3><p><b>গতি:</b> সময়ের সাথে কোনো বস্তুর অবস্থানের পরিবর্তনকে গতি বলে।</p><p><b>দ্রুতি:</b> একক সময়ে অতিক্রান্ত দূরত্ব।</p><p><b>বেগ:</b> একক সময়ে সরণ।</p><p><b>ত্বরণ:</b> একক সময়ে বেগের পরিবর্তন।</p></div><div class="study-section"><h3>🧮 সূত্র</h3><div class="formula">দ্রুতি = দূরত্ব / সময়</div><div class="formula">বেগ = সরণ / সময়</div><div class="formula">ত্বরণ = বেগের পরিবর্তন / সময়</div></div>`,mcq:"generic",cq:`<div class="cq"><p><b>১.</b> দ্রুতি ও বেগের পার্থক্য লেখো।</p><p><b>২.</b> ত্বরণ কী? সূত্র লেখো।</p></div>`},
+ch3:{title:"Chapter 03 — Force",notes:`<div class="study-section"><h3>📖 বল</h3><p>কোনো বস্তুর স্থিতি বা গতির অবস্থা পরিবর্তন করতে পারে এমন প্রভাবকে বল বলে।</p><div class="formula">F = ma</div></div>`,mcq:"generic",cq:`<div class="cq"><p><b>১.</b> নিউটনের দ্বিতীয় সূত্র ব্যাখ্যা করো।</p></div>`},
+ch4:{title:"Chapter 04 — Work, Energy & Power",notes:`<div class="study-section"><h3>📖 গুরুত্বপূর্ণ ধারণা</h3><p>বল প্রয়োগে বস্তুর সরণ ঘটলে কাজ সম্পন্ন হয়।</p><div class="formula">কাজ = বল × সরণ</div><div class="formula">ক্ষমতা = কাজ / সময়</div></div>`,mcq:"generic",cq:`<div class="cq"><p><b>১.</b> কাজ ও ক্ষমতার সংজ্ঞা ও একক লেখো।</p></div>`},
+ch5:{title:"Chapter 05 — States of Matter & Pressure",notes:`<div class="study-section"><h3>📖 গুরুত্বপূর্ণ ধারণা</h3><p>পদার্থের প্রধান অবস্থা কঠিন, তরল ও গ্যাসীয়।</p><div class="formula">চাপ = বল / ক্ষেত্রফল</div><div class="formula">ঘনত্ব = ভর / আয়তন</div></div>`,mcq:"generic",cq:`<div class="cq"><p><b>১.</b> চাপ ও ঘনত্বের সূত্র লেখো।</p></div>`},
+ch6:{title:"Chapter 06 — Effect of Heat",notes:`<div class="study-section"><h3>📖 গুরুত্বপূর্ণ ধারণা</h3><p>তাপমাত্রার পরিবর্তনের ফলে পদার্থের বিভিন্ন ভৌত ধর্মে পরিবর্তন ঘটতে পারে।</p><p>তাপ সঞ্চালনের প্রধান পদ্ধতি: পরিবহন, পরিচলন ও বিকিরণ।</p></div>`,mcq:"generic",cq:`<div class="cq"><p><b>১.</b> তাপ সঞ্চালনের তিনটি পদ্ধতি লেখো ও সংক্ষেপে ব্যাখ্যা করো।</p></div>`}
+};
+
+function makeMCQ(){
+return mcqs.map((m,i)=>`<div class="mcq"><p><b>${i+1}. ${m[0]}</b></p><p>${m[1]}</p><p>${m[2]}</p><p>${m[3]}</p><div class="answer">✅ উত্তর: ${m[4]}</div></div>`).join("");
+}
+function genericMCQ(){
+return `<div class="study-section"><h3>❓ MCQ</h3><p>এই অধ্যায়ের MCQ সেট পরে যোগ করা যাবে।</p></div>`;
+}
+function openStudy(ch,type){
+const d=studyData[ch];document.getElementById("studyTitle").textContent=d.title;
+let content=type==="notes"?d.notes:type==="cq"?d.cq:(d.mcq==="ch1"?makeMCQ():genericMCQ());
+document.getElementById("studyContent").innerHTML=content;
+document.getElementById("studyModal").style.display="block";
+}
+function closeStudy(){document.getElementById("studyModal").style.display="none"}
+window.onclick=e=>{if(e.target===document.getElementById("studyModal"))closeStudy()};
+</script>
+</body>
+</html>
